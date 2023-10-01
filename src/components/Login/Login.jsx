@@ -6,7 +6,7 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
-        console.log('Google');
+        console.log('Google button is clicked');
     }
 
     return (
