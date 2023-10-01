@@ -11,23 +11,35 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser);
-                setUser(loggedInUser);
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log('Error', error.message);
             });
     }
 
+    const handleGithubLogin = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     const handleLogout = () => {
         signOut(auth)
-            .then((result) => {
+            .then(result => {
                 console.log(result);
                 setUser(null);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
             });
     }
